@@ -6,6 +6,7 @@ module LicenseFinder
     def initialize(options = {})
       super
       @requirements_path = options[:pip_requirements_path] || Pathname('requirements.txt')
+      @python_path = options[:python_path] || 'C:\Python27\python.exe'
     end
 
     def current_packages
@@ -36,7 +37,7 @@ module LicenseFinder
     end
 
     def pip_output
-      output = `#{LicenseFinder::BIN_PATH.join('license_finder_pip.py')} #{detected_package_path}`
+      output = `#{@python_path} #{LicenseFinder::BIN_PATH.join('license_finder_pip.py')} #{detected_package_path}`
       JSON(output).map do |package|
         package.values_at('name', 'version', 'dependencies', 'location')
       end

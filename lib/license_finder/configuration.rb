@@ -43,6 +43,10 @@ module LicenseFinder
       get(:pip_requirements_path)
     end
 
+    def python_path
+      get(:python_path)
+    end
+
     def rebar_command
       get(:rebar_command)
     end
