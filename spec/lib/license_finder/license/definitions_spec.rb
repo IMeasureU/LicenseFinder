@@ -16,6 +16,12 @@ describe LicenseFinder::License, 'Apache2' do
   end
 end
 
+describe LicenseFinder::License, 'ASL' do
+  it 'should be recognized' do |_e|
+    expect(described_class.find_by_name('ASL').url).to be
+  end
+end
+
 describe LicenseFinder::License, 'BSD' do
   it 'should be recognized' do |_e|
     expect(described_class.find_by_name('BSD').url).to be

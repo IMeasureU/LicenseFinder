@@ -6,6 +6,7 @@ module LicenseFinder
       def all
         [
           apache2,
+          asl,
           bsd,
           gplv2,
           gplv3,
@@ -49,10 +50,18 @@ module LicenseFinder
         )
       end
 
+      def asl
+        License.new(
+          short_name:  'ASL',
+          other_names: ['Amazon Software License'],
+          url:         'https://aws.amazon.com/asl/'
+        )
+      end
+
       def bsd
         License.new(
           short_name:  'BSD',
-          other_names: ['BSD4', 'bsd-old', '4-clause BSD', 'BSD-4-Clause', 'BSD License'],
+          other_names: ['BSD4', 'bsd-old', '4-clause BSD', 'BSD-4-Clause', 'BSD License', 'BSD*'],
           url:         'http://en.wikipedia.org/wiki/BSD_licenses#4-clause_license_.28original_.22BSD_License.22.29'
         )
       end
@@ -76,6 +85,7 @@ module LicenseFinder
       def isc
         License.new(
           short_name: 'ISC',
+          other_names: ['ISC*'],
           url:        'http://en.wikipedia.org/wiki/ISC_license'
         )
       end
@@ -102,7 +112,7 @@ module LicenseFinder
 
         License.new(
           short_name:  'MIT',
-          other_names: ['Expat', 'MIT license', 'MIT License'],
+          other_names: ['Expat', 'MIT license', 'MIT License', 'MIT*'],
           url:         'http://opensource.org/licenses/mit-license',
           matcher:     matcher
         )
