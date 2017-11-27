@@ -3,16 +3,15 @@
 </head>
 <body>
 <div class="container">
-  <h1><%= project_name %></h1>
-  <div class="dependencies">
-    <% sorted_dependencies.each do |dependency| -%>
-      <div id="<%= dependency.name %>" class="dep">
-        <p class="dep.name"><%= link_to_dependency(dependency) %></p>
-        <p class="dep.version"><%= version_groups(dependency) %></p>
-        <p class="dep.licence"><%= license_links(dependency) %></p>
-      </div>
-    <% end -%>
-  </div>
+  <h2><%= project_name %></h2>
+  <% sorted_dependencies.each do |dependency| -%>
+    <div id="<%= dependency.name %>" class="dep">
+      <p class="depName"><%= dependency_name(dependency) %></p>
+      <p class="depVersion"><%= version_groups(dependency) %></p>
+      <p class="depLink"><%= link_to_dependency(dependency) %></p>
+      <p class="depLicence"><%= license_links(dependency) %></p>
+    </div>
+  <% end -%>
 </div>
 </body>
 </html>

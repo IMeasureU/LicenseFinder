@@ -1,3 +1,3 @@
 module LicenseFinder
-  VERSION = '4.0.3.imu'.freeze
+  VERSION = '4.0.4.imu'.freeze
 end

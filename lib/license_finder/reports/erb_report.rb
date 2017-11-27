@@ -21,12 +21,23 @@ module LicenseFinder
         .sort_by { |_, group| -group.size }
     end
 
-    def link_to_license(license)
-      link_to_maybe license.name, license.url
+    def dependency_name(dependency)
+      dependency.name
     end
 
     def link_to_dependency(dependency)
-      link_to_maybe dependency.name, dependency.homepage
+      link = dependency.homepage
+      if link && link!="Unknown" && !link.empty?
+        %(<a href="#{link}">#{link}</a>)
+      else
+        "URL undefined..."
+      end
+    end
+
+    #########################
+
+    def link_to_license(license)
+      link_to_maybe license.name, license.url
     end
 
     def link_to_maybe(text, link)
